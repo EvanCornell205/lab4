@@ -1,7 +1,10 @@
 CC = gcc
 CFLAGS = -Wall -pthread
 
-all: createThreads parallel1 parallel2 parallel3
+all: createThreads sequential parallel1 parallel2 parallel3
+
+sequential: sequential.c
+	$(CC) $(CFLAGS) -o sequential sequential.c
 
 createThreads: createThreads.c
 	$(CC) $(CFLAGS) -o createThreads createThreads.c
@@ -16,4 +19,4 @@ parallel3: parallel3.c
 	$(CC) $(CFLAGS) -o parallel3 parallel3.c
 
 clean:
-	rm -f createThreads parallel1 parallel2 parallel3
+	rm -f createThreads sequential parallel1 parallel2 parallel3

@@ -1,0 +1,30 @@
+CSE 2431 - Lab 3: Threads and Locks
+Name: Evan Cornell
+OSU Dot Number: cornell.205
+
+EXPERIMENT 1 - parallel1.c 
+
+Q1: Does it generate the same result as the sequential
+version?
+A: No
+
+Q2: Does it always generate the same result?
+A: No
+
+EXPERIMENT 2 - parallel2.c
+
+Q1: Does it generate the same result as the sequential version?
+A: Yes
+
+Q2: Does it always generate the same result?
+A: Yes
+
+EXPERIMENT 3 - parallel3.c 
+
+Q1: Could you think of a better solution that does not need to hold the lock for
+multiple times or for a long time?
+A: In parallel2, the lock is utilized once per array element. Every Thread is being forced
+to take turns. They aren't actually doing anything in parallel. So instead of having
+a single global sum that all threads use, we create a local sum for each thread coresponding
+to it's chuck of the array. When the thread is done we add the local sum to the glocal sum.
+SO this is real parallelization.  
